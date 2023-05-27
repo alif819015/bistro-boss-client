@@ -20,7 +20,7 @@ const popular = menu.filter(item => item.category === 'popular');
             }
             </div>
             <div className="flex justify-center mx-auto">
-            <button className="btn btn-outline border-0 border-b-4 mt-4 ">View Full  Menu</button>
+            <button className="btn btn-outline border-0 border-b-4 mt-4 ">View Full Menu</button>
             </div>
         </section>
     );

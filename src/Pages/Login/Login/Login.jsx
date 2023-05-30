@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -16,7 +17,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
-
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -34,15 +34,15 @@ const Login = () => {
         const logedUser = result.user;
         console.log(logedUser);
         Swal.fire({
-            title: 'User Login Successfully',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          });
-          navigate(from, { replace: true });
+          title: "User Login Successfully",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -109,16 +109,18 @@ const Login = () => {
                 <label className="label">
                   <LoadCanvasTemplate />
                 </label>
-                <input onBlur={handleValidateCaptcha}
+                <input
+                  onBlur={handleValidateCaptcha}
                   type="text"
                   name="captcha"
                   placeholder="type the name of above"
                   className="input input-bordered"
                 />
               </div>
+              {/* TODO: make button disable for capture   */}
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
@@ -131,6 +133,7 @@ const Login = () => {
                 Create a New Account
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

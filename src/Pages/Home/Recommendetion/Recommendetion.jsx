@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-import MenuItem from "../../Shared/MenuItem/MenuItem";
 import FoodCard from "../../../Components/SectionTitle/FoodCard/FoodCard";
 
 const Recommendetion = () => {
@@ -21,7 +20,7 @@ const Recommendetion = () => {
             subHeading='Should Try'
             heading='CHEF RECOMMENDS'
             ></SectionTitle>
-            <div className="flex gap-4">
+            <div className="md:flex gap-4">
         {
             menu.map(item => <FoodCard item={item} key={item}></FoodCard>)
         }

@@ -12,7 +12,7 @@ const MenuCategory = ({ items, title, img }) => {
           subTitle="Would you like to try a dish?"
         ></Cover>
       )}
-      <div className="grid md:grid-cols-2 gap-4 my-16">
+      <div className="grid md:grid-cols-2 md:mx-28 mx-10 gap-4 my-16">
         {items.map((item) => (
           <MenuItem key={item._id} item={item}></MenuItem>
         ))}
